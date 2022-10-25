@@ -56,6 +56,7 @@ class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
 
 @permission_required('catalog.can_mark_returned')
 def renew_book_librarian(request, pk):
+
     book_inst = get_object_or_404(BookInstance, pk=pk)
     if request.method == 'POST':
         form = RenewBookForm(request.POST)
